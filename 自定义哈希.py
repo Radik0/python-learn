@@ -4,6 +4,9 @@
 # @Author  : Huang
 # @FileName: 自定义哈希.py
 # @Software: PyCharm
+import hashlib
+
+
 def my_hash(x):
     return (x % 7) ^ 2
 
@@ -13,7 +16,7 @@ print(my_hash(x))
 print(my_hash(1))
 print(my_hash(2))
 
-import hashlib
+# hashlib 是python的一个算法模块
 
 md5 = hashlib.md5()
 data = 'hello,word'
