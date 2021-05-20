@@ -23,7 +23,7 @@ def register():
         if user == "N":
             return
         pwd = input('请输入密码')
-        temp = {'username': user, 'password': get_md5(pwd)}
+        temp = {'username': user, 'password': get_md5(pwdwd)}
         USER_LIST.append(temp)
 
 
