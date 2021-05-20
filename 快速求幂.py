@@ -1,10 +1,7 @@
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
-# @Time    : 2021/4/14 15:03
-# @Author  : Huang
-# @FileName: 快速求幂.py
-# @Software: PyCharm
-def kuaishu(a, n, m):
+import random
+
+
+def quieKPowMod(a, n, m):
     re = 1
     base = a % m
     while (n > 0):
@@ -13,8 +10,27 @@ def kuaishu(a, n, m):
             re = (re * base) % m
         base = (base * base) % m
         n >>= 1
-        return re
+    return re
 
 
-a, n, m = input()
-kuaishu(a, n, m)
+def Miler_Rabin(p):
+    m = 10
+    flag = 0
+    for i in range(0, m):
+        a = random.randint(2, p - 1)
+        tem2 = quieKPowMod(a, p - 1, p)
+        if tem2 != 1:
+            flag = 1
+            break
+    if flag == 0:
+        print("{0} is prime".format(p))
+    elif flag == 1:
+        print("{0} is not prime".format(p))
+    else:
+        print("error")
+
+
+if __name__ == '__main__':
+    while (1):
+        p = int(input("请输入一个数字:"))
+        Miler_Rabin(p)

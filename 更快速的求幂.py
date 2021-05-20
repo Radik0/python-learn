@@ -27,7 +27,6 @@ def quy(a, b, c):
     return ans
 
 
-time = clock()
 a = eval(input('底数'))
 b = eval(input('指数'))
 c = eval(input('摸'))

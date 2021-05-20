@@ -8,7 +8,7 @@
 # conding:utf-8
 import requests
 
-url_init = "http://180.21.14.254:8080/Less-9/?id=1";
+url_init = "http://192.168.127.144:83/Less-8/?id=1";
 
 url_init_error = url_init + "'"
 length_init = requests.get(url_init).headers.get('Content-Length')

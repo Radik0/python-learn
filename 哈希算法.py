@@ -10,6 +10,3 @@ def hashmap(nums, target):
         if hashmap.get(target - nums) is not None:
             return [i, hashmap.get(target - num)]
         hashmap[num] = i
-
-
-num

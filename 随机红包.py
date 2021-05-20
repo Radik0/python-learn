@@ -18,7 +18,8 @@ def bouns(money, amount):
             yield float('%2f' % money2)
         amount -= 1
 
-        x = int(input())
-        y = int(input())
-        g = bouns(x, n)
-        print(list(g))
+
+x = int(input('请输入红包金额'))
+y = int(input("请输入你要发的红包个数"))
+g = bouns(x, y)
+print(list(g))
