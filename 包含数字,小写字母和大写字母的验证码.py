@@ -24,14 +24,18 @@
 # print(get_code())
 import random as r
 
-la = [chr(i) for i in range(65, 91)]  # 定义随机大写字母
-lb = [chr(i) for i in range(97, 122)]  # 定义随机小写字母
-ld = [chr(i) for i in range(48, 58)]  # 定义随机数字
+la = [chr(i) for i in range(65, 91)]  # 定义随机大写字母A/Z
+lb = [chr(i) for i in range(97, 123)]  # 定义随机小写字母a/z
+ld = [chr(i) for i in range(48, 58)]  # 定义随机数字0/9
+# print(ld)
+# print(la)
+# print(lb)
 labd = la + lb + ld  # 将大小写字母和随机数字相加
-r.shuffle(labd)
-r.shuffle(ld)
-yzm = r.sample(labd, 3) + r.sample(ld, 1)
-
-r.shuffle(yzm)
-code_num = ''.join(yzm)
+r.shuffle(labd)  # 利用随机函数定义字符串
+r.shuffle(ld)  # 利用随机函数定义数字
+hgl = r.sample(labd, 3) + r.sample(ld, 1)
+# r.shuffle(lb)
+# hgl=r.sample(lb,4)
+# r.shuffle(hgl)
+code_num = ''.join(hgl)
 print(str(code_num))

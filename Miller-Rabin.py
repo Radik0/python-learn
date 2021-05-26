@@ -1,19 +1,20 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-# @Time    : 2021/5/19 14:15
+# @Time    : 2021/6/12 20:15
 # @Author  : Huang
-# @FileName: 快速求幂取余.py
+# @FileName: 1.py
 # @Software: PyCharm
+
 
 import random
 
 
 # 快速求幂取模
-def quickPowMod(a, n, m):
+def hgl11(a, n, m):  # 定义函数引入变量
     re = 1
     base = a % m
     while (n > 0):
-        tem = n & 1
+        tem = n & 1  # 对tem进行判断
         if (tem):
             re = (re * base) % m
         base = (base * base) % m
@@ -21,23 +22,18 @@ def quickPowMod(a, n, m):
     return re
 
 
-def Miler_Rabin(P):
-    # 循环次数m
+def hgl12(P):
     m = 10
-
     flag = 0
     for i in range(0, m):
-        # a是2-P-1的随机数
+        # 调用函数,随机从2和P-1中抽取数字赋值给a
         a = random.randint(2, P - 1)
-        # 直接求幂取余
-        tem = pow(a, P - 1)
-        tem1 = tem % P
-        # 快速求幂取余
-        tem1 = quickPowMod(a, P - 1, P)
-        if tem1 != 1:
+        # 调用上面定义的函数
+        tem2 = hgl11(a, P - 1, P)
+        if tem2 != 1:
             flag = 1
             break
-
+    # 对flag进行判断
     if flag == 0:
         print("{0} is prime".format(P))
     elif flag == 1:
@@ -47,7 +43,7 @@ def Miler_Rabin(P):
 
 
 if __name__ == '__main__':
-
+    # https://www.zhihu.com/question/49136398
     while (1):
         P = int(input("请输入一个数字："))
-        Miler_Rabin(P)
+        hgl12(P)

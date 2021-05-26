@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-# @Time    : 2021/5/26 15:24
+# @Time: 2021/5/26 15:24
 # @Author  : Huang
 # @FileName: 公钥解密.py
 # @Software: PyCharm
+
 import base64
 
 from Crypto.Hash import SHA
