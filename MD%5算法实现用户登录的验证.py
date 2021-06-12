@@ -15,24 +15,35 @@ dict(user)
 
 
 def hgl01_get_md5(data):
-    obj = hashlib.md5("12:;idrsicwersdfsaersdfresdy54436jgfdsjdxff123ad".encode("utf-8"))
+    obj = hashlib.md5("12:;idrsicwersdfsaersdfresdy54436jgfdsjdxff123ad".encode("utf-8"))  # md5 加密
     # 引入md5 加密随机数
     obj.update(data.encode("utf-8"))  # 定义uft8格式u
     result = obj.hexdigest()  # 调用哈希算法
     return result
 
 
-1
+def hgl_032findLen(str):  # 验证字符长度
+    counter = 0
+    while str[counter:]:
+        counter += 1
+    return counter
+
+
+# 验证
+la = [chr(i) for i in range(65, 91)]  # 定义随机大写字母A/Z
+lb = [chr(i) for i in range(97, 123)]  # 定义随机小写字母a/z
+yz = la + lb
+ty = True
 # 用户注册
-while True:
-    choice = input('1：用户注册\t2：验证登录\tps:其他数字退出(切勿输入字母以外的东西)')  # 对用户的输入进行判断
-    # la = [chr(i) for i in range(65, 91)]  # 定义随机大写字母A/Z
-    # lb = [chr(i) for i in range(97, 123)]  # 定义随机小写字母a/z
-    # # ld = [chr(i) for i in range(48, 58)]  # 定义随机数字0/9
-    # sum = la + lb
-    # while choice in sum:
-    # choice=ord(choice)
-    choice = int(choice)  # 转换为int类型
+while ty:
+
+    choice = input('1：用户注册\t2：验证登录\tps:其他数字退出(切勿输入字母以外的东西)\n输入长度小于1')  # 对用户的输入进行判断
+    if choice in yz or hgl_032findLen(choice) > 2:
+
+        print("长度错误,输入错误")
+        ty = False  # while 退出的条件
+    else:
+        choice = int(choice)
 
     while choice == 1:
         print('----用户注册----'.center(40))
@@ -45,12 +56,18 @@ while True:
         print(md5.hexdigest())
         password.append(md5.hexdigest())
         # 将用户名和密码保存到字典
-        choice1 = input('注册成功！\b\n输入1返回\t输入2继续注册\t')
-        choice1 = int(choice1)
-        if choice1 == 1:
+        choice1 = input('注册成功！\b\n输入1返回\t输入2继续注册\t不能输入其他字符且长度小于1')
+        if choice1 in yz or hgl_032findLen(choice1) > 2:
+
+            print("长度错误")
+            ty = False
             break
         else:
-            continue
+            choice1 = int(choice1)
+            if choice1 == 1:
+                break
+            else:
+                continue
     user = dict(zip(name, password))
     print(user)
 
@@ -73,6 +90,3 @@ while True:
         else:
             print('用户名不存在！'.center(40))
             continue
-    else:
-        print("结束，感谢")
-        break
